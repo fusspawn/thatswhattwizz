@@ -96,8 +96,8 @@
         <script type="text/javascript"> 
             $(function() {
                         $("#result").hide();
-
                         $("#qform").submit(function(e) {
+                            console.log("asking: "+ $("#question").val());
                             $("#result").hide();
                             e.preventDefault();
                             $.post("./classify", $("#question").val(), function(response) {
