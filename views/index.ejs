@@ -98,7 +98,7 @@
                         $("#result").hide();
 
                         $("#qform").submit(function(e) {
-                            ResultDiv.hide();
+                            $("#result").hide();
                             e.preventDefault();
                             $.post("./classify", $("#question").val(), function(response) {
                                  response = JSON.parse(response);
