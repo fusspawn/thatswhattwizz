@@ -16,6 +16,8 @@ app.post("/classify", function(req, res) {
     res.send(JSON.stringify({result: 
                                 twss.is(req.param("question", " ")),
                              prob: 
-                                twss.prob(req.param("question", " "))
+                                twss.prob(req.param("question", " ")),
+                             question:
+                                req.param("question", "")
                             }));    
 });

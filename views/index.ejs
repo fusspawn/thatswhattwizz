@@ -104,7 +104,7 @@
                             e.preventDefault();
                             $.post("./classify", QuestionForm.serialize(), function(response) {
                                  response = JSON.parse(response);
-                                 ResultDiv.html("Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
+                                 ResultDiv.html(" you asked: " +response.question+" <br /> Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
                                  ResultDiv.show();
                             });
                         });
