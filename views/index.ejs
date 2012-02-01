@@ -71,7 +71,7 @@
         <div class="topbar">
           <div class="fill">
             <div class="container">
-              <a class="brand" href="../market/">Cloneable </a>
+              <a class="brand" href="#">Cloneable </a>
               <ul class="nav">
                 <li class="active"><a href="#"> Home </a></li>
               </ul>
@@ -84,15 +84,34 @@
              <h1>Hello, Thar!</h1>
                 <p> Ever been curious if thats what twizz said? </p>
                 <p> Ask your question below and ill do my best to answer it! </p>
-                <form action="./classify" method="POST" />
+                <form action="./classify" method="POST" id="qform" />
                     <input type="text" placeholder="Thats what twizz said?" name="question" id="question" />
                 </form>
+                <div id="result" />
           </div>
           <footer>
             <p>© Fubotix 2012</p>
           </footer>
         </div>
         </div> <!-- /container -->
+        <!-- Ajaxyness -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" />
+        <script type="text/javascript"> 
+            $(function() {
+                        var ResultDiv = $("#result");
+                            ResultDiv.hide();
+
+                        var QuestionForm = $("#qform");
+                        QuestionForm.submit(function(e) {
+                            ResultDiv.hide();
+                            e.preventDefault();
+                            $.post("./classify", QuestionForm.serialize(), function(response) {
+                                 ResultDiv.html("Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
+                                 ResultDiv.show();
+                            });
+                        });
+            });
+        </script>
     </body>
 </html>
     
