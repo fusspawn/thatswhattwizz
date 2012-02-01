@@ -13,7 +13,7 @@ app.get("/", function(req, res) {
 });
 
 app.post("/classify", function(req, res) {
-    console.log("user asked:" + req.param("question", "NULL");
+    console.log("user asked:" + req.param("question", "NULL"));
     res.send(JSON.stringify({result: 
                                 twss.is(req.param("question", "NULL")),
                              prob: 
