@@ -1,6 +1,6 @@
 <html lang="en"><head>
     <meta charset="utf-8">
-    <title> Cloneable! </title>
+    <title> Thats what twizz said! </title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -72,9 +72,6 @@
           <div class="fill">
             <div class="container">
               <a class="brand" href="#">Cloneable </a>
-              <ul class="nav">
-                <li class="active"><a href="#"> Home </a></li>
-              </ul>
             </div>
           </div>
         </div>
@@ -106,6 +103,7 @@
                             ResultDiv.hide();
                             e.preventDefault();
                             $.post("./classify", QuestionForm.serialize(), function(response) {
+                                 response = JSON.parse(response);
                                  ResultDiv.html("Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
                                  ResultDiv.show();
                             });
