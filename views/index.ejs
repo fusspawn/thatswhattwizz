@@ -95,17 +95,15 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" > </script>
         <script type="text/javascript"> 
             $(function() {
-                        var ResultDiv = $("#result");
-                            ResultDiv.hide();
+                        $("#result").hide();
 
-                        var QuestionForm = $("#qform");
-                        QuestionForm.submit(function(e) {
+                        $("#qform").submit(function(e) {
                             ResultDiv.hide();
                             e.preventDefault();
-                            $.post("./classify", QuestionForm.serialize(), function(response) {
+                            $.post("./classify", $("#question").val(), function(response) {
                                  response = JSON.parse(response);
-                                 ResultDiv.html(" you asked: " +response.question+" <br /> Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
-                                 ResultDiv.show();
+                                 $("#result").html(" you asked: " +response.question+" <br /> Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
+                                 $("#result").show();
                             });
                         });
             });
