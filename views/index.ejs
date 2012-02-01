@@ -100,7 +100,7 @@
                             console.log("asking: "+ $("#question").val());
                             $("#result").hide();
                             e.preventDefault(); //
-                            $.post("./classify", {question: $("#question").val()}, function(response) {
+                            $.get("./classify", {question: $("#question").val()}, function(response) {
                                  response = JSON.parse(response);
                                  $("#result").html("<img src='http://a5.sphotos.ak.fbcdn.net/photos-ak-snc1/v2085/97/69/516681010/n516681010_2489492_6341.jpg'> you asked: " +response.question+" <br /> Twiss said: <small>" + response.result + "</small> with a probability of: " + response.prob);
                                  $("#result").show();

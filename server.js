@@ -12,7 +12,7 @@ app.get("/", function(req, res) {
     res.render("index.ejs");
 });
 
-app.post("/classify", function(req, res) {
+app.get("/classify", function(req, res) {
     console.log("user asked:" + req.param("question", "NULL"));
     res.send(JSON.stringify({result: 
                                 twss.is(req.param("question", "NULL")),
